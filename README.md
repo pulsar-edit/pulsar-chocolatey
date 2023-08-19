@@ -54,9 +54,6 @@ Once the script terminates, the package is ready to be generated.
 
 Once the sources are updated, navigate to `pulsar` folder and run:
 
-It is also recommended to update the following fields of the `pulsar.nuspec` prior to creating a new version:
-- `releaseNotes`
-
 ```
 choco pack
 ```
