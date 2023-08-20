@@ -33,4 +33,5 @@ jobs:
     - name: Write Comment
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: ${{ steps.pulsar-version.outputs }}
+        message: |
+          ${{ steps.pulsar-version.outputs }}
