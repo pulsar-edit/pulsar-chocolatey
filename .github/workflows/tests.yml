@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Build Current Version
       run: |
-      cd ./pulsar
+      cd .\pulsar
       choco pack
 
     - name: Install Current Version
