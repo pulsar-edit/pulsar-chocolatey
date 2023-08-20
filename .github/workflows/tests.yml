@@ -26,12 +26,12 @@ jobs:
     - name: Ensure Installation was successful
       id: pulsar-version
       run: |
-        (
+        version=$((
         pulsar --version |
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
         Where-Object {$_.Application -eq "Pulsar" } |
         Select-Object -Property @{n='version'; e={ return "$($PSItem.Application) $($PSItem.Version)" }}
-        ).version >> $GITHUB_OUTPUT
+        ).version) >> $GITHUB_OUTPUT
 
     - name: Just a check
       run: echo "${{ steps.pulsar-version.outputs }}"
@@ -40,4 +40,4 @@ jobs:
       uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
-          ${{ steps.pulsar-version.outputs }}
+          ${{ steps.pulsar-version.outputs.version }}
