@@ -31,7 +31,7 @@ jobs:
         Where-Object {$PSItem.Application -eq "Pulsar" } |
         Select-Object -Property @{n='version'; e={ return "$($PSItem.Application) $($PSItem.Version)" }}
         ).version
-        Write-Host "pulsarVersion=$($version)" | Out-File -Append -FilePath $env:GITHUB_ENV
+        Write-Host "pulsarVersion='$($version)'" | Out-File -Append -FilePath $env:GITHUB_ENV
 
     - name: Just a check
       run: echo '${{ env.pulsarVersion }}'
