@@ -23,6 +23,16 @@ jobs:
       run: python init.py ${{ github.event.issue.title }}
 
     - name: Create Pull Request With Changes
-      run: gh pr create -B base_branch -H release --title '[${{ github.event.issue.title }}] Release' --body 'Automated PR'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: Draft ${{ github.event.issue.title }} Release
+        committer: ${{ github.event.issue.sender }}
+        author: ${{ github.event.issue.sender }}
+        signoff: false
+        branch: release-${{ github.event.issue.title }}
+        delete-branch: true
+        title: '[${{ github.event.issue.title }}] Draft Release'
+        body: |
+          Automated Draft of new Pulsar Chocolatey Release
+        draft: false
