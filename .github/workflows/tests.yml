@@ -7,6 +7,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Checkout the latest code
+      uses: actions/checkout@v3
+      
     - name: Build Current Version
       run: |
         cd ./pulsar
