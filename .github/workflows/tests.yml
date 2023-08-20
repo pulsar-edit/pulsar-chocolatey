@@ -28,4 +28,4 @@ jobs:
       shell: pwsh
 
     - name: Can we set the Step Summary Successfully?
-      run: Write-Host "## Hello World :rocket:" >> $env:GITHUB_STEP_SUMMARY
+      run: echo "## Hello World :rocket:" >> $env:GITHUB_STEP_SUMMARY
