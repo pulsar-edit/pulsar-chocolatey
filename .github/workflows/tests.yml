@@ -29,3 +29,6 @@ jobs:
 
     - name: Can we set the Step Summary Successfully?
       run: echo "$((pulsar --version | Write-Host))" >> $env:GITHUB_STEP_SUMMARY
+
+    - name: What is possibly the value of GITHUB_STEP_SUMMARY?
+      run: echo $env:GITHUB_STEP_SUMMARY
