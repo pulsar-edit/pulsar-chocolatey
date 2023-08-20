@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Checkout the latest code
       uses: actions/checkout@v3
-      
+
     - name: Build Current Version
       run: |
         cd ./pulsar
@@ -24,4 +24,4 @@ jobs:
         "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
-      run: pulsar --version >> $GITHUB_STEP_SUMMARY
+      run: pulsar --version >> $env:GITHUB_STEP_SUMMARY
