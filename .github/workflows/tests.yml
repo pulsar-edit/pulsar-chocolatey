@@ -9,16 +9,16 @@ jobs:
     steps:
     - name: Build Current Version
       run: |
-      cd .\pulsar
-      choco pack
+        cd ./pulsar
+        choco pack
 
     - name: Install Current Version
       run: choco install pulsar --source .
 
     - name: Put Pulsar On the PATH
       run: |
-      "$env:LOCALAPPDATA\Programs\Pulsar\" >> $env:GITHUB_PATH
-      "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
+        "$env:LOCALAPPDATA\Programs\Pulsar\" >> $env:GITHUB_PATH
+        "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
       run: pulsar --version >> $GITHUB_STEP_SUMMARY
