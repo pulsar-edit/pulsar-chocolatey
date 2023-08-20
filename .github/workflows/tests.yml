@@ -26,18 +26,17 @@ jobs:
     - name: Ensure Installation was successful
       id: pulsar-version
       run: |
-        (
         pulsar --version |
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
         Where-Object {$_.Application -eq "Pulsar" } |
         Select-Object -Property @{n='version'; e={ return "$($PSItem.Application) $($PSItem.Version)" }}
-        ).version >> $env:PulsarVersion
+        ).version >> $env:GITHUB_STEP_SUMMARY
 
     - name: Just a check
-      run: echo $env:PulsarVersion
+      run: echo $env:GITHUB_STEP_SUMMARY
 
     - name: Write Comment
       uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
-          ${{ github.env.PulsarVersion }}
+          ${{ github.env.GITHUB_STEP_SUMMARY }}
