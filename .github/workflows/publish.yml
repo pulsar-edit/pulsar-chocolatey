@@ -1,0 +1,24 @@
+name: Chocolatey Publish Pulsar
+
+on:
+  issues:
+    types: [ labeled ]
+
+jobs:
+  draft_publish:
+    if: contains(github.event.issue.labels.*.name, 'release')
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout Latest Code
+      uses: actions/checkout@v3
+
+    - name: Init New Version
+      run: python init.py ${{ github.event.issue.title }}
+
+    - name: Create Pull Request With Changes
+      run: gh pr create -B base_branch -H release --title '[${{ github.event.issue.title }}] Release' --body 'Automated PR'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
