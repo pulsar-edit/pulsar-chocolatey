@@ -28,4 +28,4 @@ jobs:
       shell: pwsh
 
     - name: Can we set the Step Summary Successfully?
-      run: echo "$(pulsar --version)" >> $env:GITHUB_STEP_SUMMARY
+      run: echo "$(pulsar --version | Write-Host)" >> $env:GITHUB_STEP_SUMMARY
