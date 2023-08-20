@@ -1,5 +1,5 @@
 ﻿$ErrorActionPreference = 'Stop'
-$url = 'https://github.com/pulsar-edit/pulsar/releases/download/v1.105.0/Windows.Pulsar.Setup.1.105.0.exe'
+$url = 'https://github.com/pulsar-edit/pulsar/releases/download/v1.106.0/Windows.Pulsar.Setup.1.106.0.exe'
 
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
@@ -7,7 +7,7 @@ $packageArgs = @{
   fileType       = 'exe'
   url            = $url
   softwareName   = 'Pulsar'
-  checksum       = 'bff670f75f52da3b8c712bb9d51d0487e879cb00297afbcef621748579cc50b4'
+  checksum       = 'a1db7bb0aed97607136a54ae3e147e09103f27bed4d2dea4ec384c63a2fc632b'
   checksumType   = 'sha256'
   silentArgs     = '/S'
   validExitCodes = @(0)
