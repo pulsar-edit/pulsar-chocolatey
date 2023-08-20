@@ -24,12 +24,13 @@ jobs:
         "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
+      id: pulsar-version
       run: |
         pulsar --version |
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
-        Where-Object {$_.Application -eq "Pulsar" } >> $env:GITHUB_STEP_SUMMARY
+        Where-Object {$_.Application -eq "Pulsar" } >> $GITHUB_OUTPUT
 
     - name: Write Comment
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: $env:GITHUB_STEP_SUMMARY
+        message: ${{ steps.pulsar-version.outputs }}
