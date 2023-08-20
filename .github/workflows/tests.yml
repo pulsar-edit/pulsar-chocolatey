@@ -28,10 +28,10 @@ jobs:
       run: |
         pulsar --version |
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
-        Where-Object {$_.Application -eq "Pulsar" } >> $GITHUB_OUTPUT
+        Where-Object {$_.Application -eq "Pulsar" } >> $env:PulsarVersion
 
     - name: Write Comment
       uses: thollander/actions-comment-pull-request@v2
       with:
         message: |
-          ${{ steps.pulsar-version.outputs }}
+          ${{ $PulsarVersion}}
