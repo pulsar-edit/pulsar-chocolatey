@@ -26,12 +26,11 @@ jobs:
     - name: Ensure Installation was successful
       id: pulsar-version
       run: |
-        $version = (pulsar --version |
+        $version = pulsar --version |
         ConvertFrom-String -PropertyNames Application, Delimiter, Version |
-        Where-Object {$PSItem.Application -eq "Pulsar" } |
-        Select-Object -Property @{n='version'; e={ return "$($PSItem.Application) $($PSItem.Version)" }}
-        ).version
-        Write-Host "pulsarVersion='$($version)'" | Out-File -Append -FilePath $env:GITHUB_ENV
+        Where-Object { $PSItem.Application -eq "Pulsar" } |
+        Select-Object -ExpandProperty version
+        Write-Host "pulsarVersion=$($version)" | Out-File -Append -FilePath $env:GITHUB_ENV
 
     - name: Just a check
       run: echo '${{ env.pulsarVersion }}'
@@ -39,4 +38,4 @@ jobs:
     - name: Write Comment
       uses: thollander/actions-comment-pull-request@v2
       with:
-        message: ${{ env.pulsarVersion }}
+        message: "Pulsar Version: ${{ env.pulsarVersion }}"
