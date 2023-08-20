@@ -25,7 +25,10 @@ jobs:
     - name: Create Pull Request With Changes
       uses: peter-evans/create-pull-request@v4
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        # We use a custom PAT token here, since `GITHUB_TOKEN` is unable to create
+        # new workflow runs from PRs, such as tests.
+        # https://github.com/peter-evans/create-pull-request/blob/main/docs/concepts-guidelines.md#triggering-further-workflow-runs
+        token: ${{ secrets.PAT_TOKEN_FOR_PRS }}
         commit-message: Draft ${{ github.event.issue.title }} Release
         branch: release-${{ github.event.issue.title }}
         delete-branch: true
