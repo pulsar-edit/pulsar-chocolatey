@@ -32,7 +32,22 @@ pip install requests
 
 ## Usage
 
-### init.py
+### Automated Releases
+
+This PR is intended to allow publishing a new Chocolatey release of Pulsar, without ever opening a terminal.
+By using the simple steps laid out below:
+
+1. Create a new issue.
+  * This issue should contain the exact version you want to publish as it's title. Nothing else. ex. `1.108.0`
+  * This issue should receive the label `release` (Best practice to add it after creating the issue)
+2. A new PR will be created labeled `[<NEW_VERSION>] Draft Release`
+3. Let automatic tests finish on this PR. Reviewing the workflow summary page will show what version of Pulsar these changes install. Make sure this matches what version you've intended to publish.
+4. If all tests pass, merge the automatic PR.
+5. With the PR now merged to `main` go ahead and trigger the GitHub Action `auto_publish`. This Action should run and if successful will publish a new version of Pulsar to Chocolatey.
+
+### Manual Releases
+
+#### init.py
 
 The script will download the Pulsar installer given the input version, and edit a couple of source files accordingly, namely:
 
@@ -50,7 +65,7 @@ One must input the last version available on the website, otherwise the script w
 
 Once the script terminates, the package is ready to be generated.
 
-### Package generation
+#### Package generation
 
 Once the sources are updated, navigate to `pulsar` folder and run:
 
@@ -79,6 +94,8 @@ If everything is ok, request to publish it on Chocolatey website.
 ```
 choco push pulsar.1.103.0.nupkg --source https://push.chocolatey.org/
 ```
+
+---
 
 ## To do
 
