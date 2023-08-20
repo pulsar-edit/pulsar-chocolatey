@@ -27,9 +27,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: Draft ${{ github.event.issue.title }} Release
-        committer: ${{ github.event.issue.sender }}
-        author: ${{ github.event.issue.sender }}
-        signoff: false
         branch: release-${{ github.event.issue.title }}
         delete-branch: true
         title: '[${{ github.event.issue.title }}] Draft Release'
