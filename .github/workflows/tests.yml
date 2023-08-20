@@ -24,4 +24,4 @@ jobs:
         "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
-      run: pulsar --version | Write-Host >> $env:GITHUB_STEP_SUMMARY
+      run: pulsar --version | Write-Host >> $GITHUB_STEP_SUMMARY
