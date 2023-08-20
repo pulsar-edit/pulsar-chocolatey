@@ -30,6 +30,6 @@ jobs:
         Where-Object {$_.Application -eq "Pulsar" } >> $env:GITHUB_STEP_SUMMARY
 
     - name: Write Comment
-      uses: thollander/actions-comment-pull-reqest@v2
+      uses: thollander/actions-comment-pull-request@v2
       with:
         message: $env:GITHUB_STEP_SUMMARY
