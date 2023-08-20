@@ -24,11 +24,4 @@ jobs:
         "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
-      run: pulsar --version | Write-Host >> $env:GITHUB_STEP_SUMMARY
-      shell: pwsh
-
-    - name: Can we set the Step Summary Successfully?
-      run: echo "$((pulsar --version | Write-Host))" >> $env:GITHUB_STEP_SUMMARY
-
-    - name: What is possibly the value of GITHUB_STEP_SUMMARY?
-      run: echo $env:GITHUB_STEP_SUMMARY
+      run: pulsar --version | ConvertFrom-String -PropertyNames Application,Delimiter,Version | Where-Object {$_.Application -eq "Pulsar" } >> $env:GITHUB_STEP_SUMMARY
