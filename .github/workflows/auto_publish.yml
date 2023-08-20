@@ -18,6 +18,7 @@ jobs:
 
     - name: Publish New Version
       run: |
-        $fileName = ( Get-ChildItem -Path . -Filter pulsar.*.nupkg )
+        $fileName = ( Get-ChildItem -Path ./pulsar -Filter pulsar.*.nupkg )
         Write-Host "Publishing $fileName to Chocolatey"
-        choco push $fileName --source https://push.chocolatey.org --apikey ${{ github.secrets.CHOCO_API_KEY }}
+        exit
+        choco push $fileName --source https://push.chocolatey.org --api-key ${{ github.secrets.CHOCO_API_KEY }}
