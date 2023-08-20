@@ -15,6 +15,9 @@ jobs:
     - name: Checkout Latest Code
       uses: actions/checkout@v3
 
+    - name: Install Python Requirements
+      run: pip install requests
+
     - name: Init New Version
       run: python init.py ${{ github.event.issue.title }}
 
