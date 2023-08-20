@@ -26,6 +26,7 @@ jobs:
     - name: Ensure Installation was successful
       id: pulsar-version
       run: |
+        (
         pulsar --version |
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
         Where-Object {$_.Application -eq "Pulsar" } |
