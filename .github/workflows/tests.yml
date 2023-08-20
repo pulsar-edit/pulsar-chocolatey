@@ -24,4 +24,7 @@ jobs:
         "$env:LOCALAPPDATA\Programs\Pulsar\resources\ppm\bin\" >> $env:GITHUB_PATH
 
     - name: Ensure Installation was successful
-      run: pulsar --version | ConvertFrom-String -PropertyNames Application,Delimiter,Version | Where-Object {$_.Application -eq "Pulsar" } >> $env:GITHUB_STEP_SUMMARY
+      run: |
+        pulsar --version |
+        ConvertFrom-String -PropertyNames Application,Delimiter,Version |
+        Where-Object {$_.Application -eq "Pulsar" } >> $env:GITHUB_STEP_SUMMARY
