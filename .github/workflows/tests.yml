@@ -31,7 +31,7 @@ jobs:
         ConvertFrom-String -PropertyNames Application,Delimiter,Version |
         Where-Object {$_.Application -eq "Pulsar" } |
         Select-Object -Property @{n='version'; e={ return "$($PSItem.Application) $($PSItem.Version)" }}
-        ).version) >> $GITHUB_OUTPUT
+        ).version >> $GITHUB_OUTPUT
 
     - name: Just a check
       run: echo "${{ steps.pulsar-version.outputs }}"
