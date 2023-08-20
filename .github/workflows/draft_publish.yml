@@ -1,4 +1,4 @@
-name: Chocolatey Publish Pulsar
+name: Chocolatey Draft Publish Pulsar
 
 on:
   issues:
