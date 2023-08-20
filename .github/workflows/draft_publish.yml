@@ -32,4 +32,5 @@ jobs:
         title: '[${{ github.event.issue.title }}] Draft Release'
         body: |
           Automated Draft of new Pulsar Chocolatey Release
+          Will close #${{ github.event.issue.number }}
         draft: false
