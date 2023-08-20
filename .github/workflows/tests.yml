@@ -28,4 +28,5 @@ jobs:
       shell: pwsh
 
     - name: Can we set the Step Summary Successfully?
-      run: echo "$(pulsar --version | Write-Host)" >> $env:GITHUB_STEP_SUMMARY
+      #run: echo "$(pulsar --version | Write-Host)" >> $env:GITHUB_STEP_SUMMARY
+      run: echo "Pulsar : 1.104.0\nElectron: 12.2.3\nChrome: 89.0.4389.128\nNode: 14.16.0" >> $env:GITHUB_STEP_SUMMARY
