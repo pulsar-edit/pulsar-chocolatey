@@ -20,5 +20,4 @@ jobs:
       run: |
         $fileName = ( Get-ChildItem -Path ./pulsar -Filter pulsar.*.nupkg )
         Write-Host "Publishing $fileName to Chocolatey"
-        exit
         choco push $fileName --source https://push.chocolatey.org --api-key ${{ github.secrets.CHOCO_API_KEY }}
