@@ -10,6 +10,7 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write
+      pull_requests: write
 
     steps:
     - name: Checkout Latest Code
