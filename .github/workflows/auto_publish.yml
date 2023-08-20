@@ -1,0 +1,23 @@
+name: Chocolatey Publish Pulsar Package
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Latest Code
+      uses: actions/checkout@v3
+
+    - name: Build Package
+      run: |
+        cd ./pulsar
+        choco pack
+
+    - name: Publish New Version
+      run: |
+        $fileName = ( Get-ChildItem -Path . -Filter pulsar.*.nupkg )
+        Write-Host "Publishing $fileName to Chocolatey"
+        choco push $fileName --source https://push.chocolatey.org --apikey ${{ github.secrets.CHOCO_API_KEY }}
