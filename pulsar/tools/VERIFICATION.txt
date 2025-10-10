@@ -1,5 +1,5 @@
 VERIFICATION
 
-Install script will download Windows.Pulsar.Setup.1.130.0.exe from https://github.com/pulsar-edit/pulsar/releases/tag/v1.130.0
-Installer checksum (SHA256): 720109619759c3ea493fc979a0a93c8fe96ec62fc6924f8d8574fd83733e7097
+Install script will download Windows.Pulsar.Setup.1.130.1.exe from https://github.com/pulsar-edit/pulsar/releases/tag/v1.130.1
+Installer checksum (SHA256): 943a0db0414bc9b7e1aeaab2faf103b9c8e9b075c585870c6996238487bf692a
 Checksum will be checked automatically by installer script.
