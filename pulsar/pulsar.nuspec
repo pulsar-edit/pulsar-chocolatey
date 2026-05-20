@@ -41,12 +41,12 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- There are a number of CDN Services that can be used for hosting the Icon for a package. More information can be found here: https://docs.chocolatey.org/en-us/create/create-packages#package-icon-guidelines -->
     <!-- Here is an example using Githack -->
     <iconUrl>https://cdn.statically.io/gh/pulsar-edit/pulsar-chocolatey/main/resources/icon.png</iconUrl>
-    <copyright>Copyright (c) 2022-2023 Pulsar-Edit</copyright>
+    <copyright>Copyright (c) 2022-2026 Pulsar-Edit</copyright>
     <!-- If there is a license Url available, it is required for the community feed -->
     <licenseUrl>https://github.com/pulsar-edit/pulsar/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectSourceUrl>https://github.com/pulsar-edit/pulsar</projectSourceUrl>
-    <docsUrl>https://pulsar-edit.dev/docs/</docsUrl>
+    <docsUrl>https://docs.pulsar-edit.dev</docsUrl>
     <!--<mailingListUrl></mailingListUrl>-->
     <bugTrackerUrl>https://github.com/pulsar-edit/pulsar/issues</bugTrackerUrl>
     <tags>pulsar editor text</tags>
